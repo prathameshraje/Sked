@@ -1,0 +1,167 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true">
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="info.androidhive.materialtabs.fragments.OneFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Event ID:"
+        android:id="@+id/textViewEventID"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextEventID"
+        android:layout_below="@+id/textViewEventID"
+        android:layout_alignParentStart="true"
+        android:singleLine="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Event Name:"
+        android:id="@+id/textViewEventName"
+        android:layout_below="@+id/editTextEventID"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextEventName"
+        android:layout_below="@+id/textViewEventName"
+        android:layout_alignParentStart="true"
+        android:singleLine="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Event Description:"
+        android:id="@+id/textViewEventDescription"
+        android:layout_below="@+id/editTextEventName"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/editTextEventDescription"
+        android:layout_below="@+id/textViewEventDescription"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scheduling Timeframe:"
+        android:id="@+id/textViewTimeframe"
+        android:layout_below="@+id/editTextEventDescription"
+        android:layout_alignParentStart="true" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewTimeframe"
+        android:layout_alignParentStart="true"
+        android:id="@+id/radioGroupTimeframe"
+        android:longClickable="false">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sked with a Day"
+            android:id="@+id/radioButtonOne"
+            android:layout_below="@+id/textViewTimeframe"
+            android:layout_alignParentStart="true"
+            android:checked="false" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sked with Two Days"
+            android:id="@+id/radioButtonTwo"
+            android:layout_below="@+id/radioButtonOne"
+            android:layout_alignParentStart="true"
+            android:checked="false" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sked with Three Days"
+            android:id="@+id/radioButtonThree"
+            android:layout_below="@+id/radioButtonTwo"
+            android:layout_alignParentStart="true"
+            android:checked="true" />
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Day 1:"
+        android:id="@+id/textViewDayOne"
+        android:layout_alignTop="@+id/editTextDatePicker" />
+
+    <EditText
+        android:layout_width="296dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/editTextDatePicker"
+        android:layout_gravity="center_horizontal"
+        android:editable="false"
+        android:inputType="none"
+        android:focusable="false"
+        android:layout_below="@+id/radioGroupTimeframe"
+        android:layout_alignEnd="@+id/editTextDatePickerTwo"
+        android:layout_alignStart="@+id/editTextDatePickerTwo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Day 2:"
+        android:id="@+id/textViewDayTwo"
+        android:layout_alignTop="@+id/editTextDatePickerTwo"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="201dp"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:focusable="false"
+        android:editable="false"
+        android:id="@+id/editTextDatePickerTwo"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/editTextDatePicker"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Day 3:"
+        android:id="@+id/textViewDayThree"
+        android:layout_below="@+id/editTextDatePickerTwo"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:focusable="false"
+        android:editable="false"
+        android:id="@+id/editTextDatePickerThree"
+        android:layout_below="@+id/editTextDatePickerTwo"
+        android:layout_alignEnd="@+id/editTextDatePickerTwo"
+        android:layout_alignStart="@+id/editTextDatePickerTwo" />
+
+</RelativeLayout>
+</ScrollView>
