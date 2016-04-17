@@ -2,6 +2,7 @@ package com.androidfp.prath.sked;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,8 +32,9 @@ public class TwoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         SqlHelper db = new SqlHelper(getActivity());
-        View InputFragmentView = inflater.inflate(R.layout.fragment_one, container, false);
+        View InputFragmentView = inflater.inflate(R.layout.fragment_two, container, false);
         userID = getActivity().getIntent().getExtras().getInt("UserID");
         Log.d("UserID", "" + userID);
 
@@ -45,17 +47,15 @@ public class TwoFragment extends Fragment {
         //db.getAllEvents(userID);
 
         listContent = (ListView) InputFragmentView.findViewById(R.id.list);
-Log.d(String.valueOf(getActivity()),listContent != null ? "lvCountries is not null!" : "lvCountries is null!");
         events = new ArrayList<Event>();
-        events=db.getAllEvents(userID);
+        events = db.getAllEvents(userID);
 
         //get data from the table by the ListAdapter
-            customAdapter = new ListAdapter(getActivity(), R.layout.itemlistrow, events);
-            listContent.setAdapter(customAdapter);
+        customAdapter = new ListAdapter(this.getActivity(), R.layout.itemlistrow, events);
+        listContent.setAdapter(customAdapter);
 
         // Inflate the layout for this fragment
         return InputFragmentView;
     }
-
 
 }
