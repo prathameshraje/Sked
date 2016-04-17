@@ -51,10 +51,11 @@ public class LoginActivity extends AppCompatActivity {
 
                 if(password.equals(storedPassword)) {
 
-                    String uName = sh.getUserName(loginID);
+                    //String uName = sh.getUserName(loginID); //to pass User Name
                     //startActivity(new Intent(LoginActivity.this, EventHomeActivity.class));
+                    int user_ID = sh.getUserID(loginID);
                     Intent i = new Intent(LoginActivity.this, EventHomeActivity.class);
-                    i.putExtra("UserName", uName);
+                    i.putExtra("UserID", user_ID);
                     startActivity(i);
                 }
                 else {

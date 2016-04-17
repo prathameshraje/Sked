@@ -1,13 +1,13 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/ScrollView"
+    android:orientation="vertical"
     android:fillViewport="true">
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context="info.androidhive.materialtabs.fragments.OneFragment">
+    android:layout_height="700dp">
 
     <TextView
         android:layout_width="wrap_content"
@@ -108,7 +108,10 @@
         android:layout_height="wrap_content"
         android:text="Day 1:"
         android:id="@+id/textViewDayOne"
-        android:layout_alignTop="@+id/editTextDatePicker" />
+        android:layout_above="@+id/editTextDatePickerTwo"
+        android:layout_alignEnd="@+id/textViewDayTwo"
+        android:layout_alignTop="@+id/editTextDatePicker"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="296dp"
@@ -120,6 +123,7 @@
         android:inputType="none"
         android:focusable="false"
         android:layout_below="@+id/radioGroupTimeframe"
+        android:layout_marginTop="23dp"
         android:layout_alignEnd="@+id/editTextDatePickerTwo"
         android:layout_alignStart="@+id/editTextDatePickerTwo" />
 
@@ -129,7 +133,9 @@
         android:text="Day 2:"
         android:id="@+id/textViewDayTwo"
         android:layout_alignTop="@+id/editTextDatePickerTwo"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/textViewDayThree"
+        android:layout_alignEnd="@+id/textViewEventID" />
 
     <EditText
         android:layout_width="201dp"
@@ -141,13 +147,15 @@
         android:id="@+id/editTextDatePickerTwo"
         android:layout_gravity="center_horizontal"
         android:layout_below="@+id/editTextDatePicker"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Day 3:"
         android:id="@+id/textViewDayThree"
+        android:layout_marginTop="27dp"
         android:layout_below="@+id/editTextDatePickerTwo"
         android:layout_alignParentStart="true" />
 
@@ -159,9 +167,18 @@
         android:focusable="false"
         android:editable="false"
         android:id="@+id/editTextDatePickerThree"
-        android:layout_below="@+id/editTextDatePickerTwo"
-        android:layout_alignEnd="@+id/editTextDatePickerTwo"
-        android:layout_alignStart="@+id/editTextDatePickerTwo" />
+        android:layout_alignTop="@+id/textViewDayThree"
+        android:layout_alignStart="@+id/editTextDatePickerTwo"
+        android:layout_alignEnd="@+id/editTextDatePickerTwo" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Event"
+        android:id="@+id/buttonCreateEvent"
+        android:layout_below="@+id/editTextDatePickerThree"
+        android:layout_centerHorizontal="true"
+        android:onClick="onClick" />
 
 </RelativeLayout>
 </ScrollView>
