@@ -22,7 +22,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 
-public class OneFragment extends Fragment{
+public class OneFragment extends Fragment {
     static EditText DateEdit,DateEdit2,DateEdit3;
     int timeFrameCount=3,userID;
 
@@ -39,9 +39,9 @@ public class OneFragment extends Fragment{
                 showDatePickerDialog(v);
             }}*/}
 
-            public void onClick(View v) {
+           /* public void onClick(View v) {
                 showDatePickerDialog(v);
-            }
+            } */
 
 
     @Override

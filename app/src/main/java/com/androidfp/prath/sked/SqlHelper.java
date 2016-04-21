@@ -16,6 +16,7 @@ import java.util.List;
  */
 public class SqlHelper extends SQLiteOpenHelper {
 
+    SQLiteDatabase db;
     // Database Version
     private static final int DATABASE_VERSION = 7;
     // Database Name
@@ -68,7 +69,7 @@ public class SqlHelper extends SQLiteOpenHelper {
             + KEY_ID + " INTEGER NOT NULL, "
             + EVENT_INITIATOR + " TEXT, PRIMARY KEY(" + EVENT_ID + "," + KEY_ID + "));";
 
-    SQLiteDatabase db;
+
 
 
 
@@ -215,4 +216,15 @@ public class SqlHelper extends SQLiteOpenHelper {
     }
 
 
+    public boolean eventExists(String strID, int userID) {
+        db = this.getReadableDatabase();
+        String search = "SELECT * FROM " +TABLE_NAME_EVENT_MEMBERS + " WHERE event_id='" + strID + "' AND id=" + userID + ";";
+        Cursor cursorEvent = db.rawQuery(search, null);
+        cursorEvent.moveToFirst();
+        if(cursorEvent.isNull(0))
+            return false;
+        else
+            return true;
+
+    }
 }

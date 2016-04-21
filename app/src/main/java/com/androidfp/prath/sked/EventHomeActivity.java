@@ -95,4 +95,5 @@ public class EventHomeActivity extends AppCompatActivity {
             return mFragmentTitleList.get(position);
         }
     }
+
 }

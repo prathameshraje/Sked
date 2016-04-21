@@ -38,7 +38,7 @@ public class TwoFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         SqlHelper db = new SqlHelper(getActivity());
-        View InputFragmentView = inflater.inflate(R.layout.fragment_two, container, false);
+        View InputFragmentView2 = inflater.inflate(R.layout.fragment_two, container, false);
         userID = getActivity().getIntent().getExtras().getInt("UserID");
         Log.d("UserID", "" + userID);
         //SqlHelper db = new SqlHelper(getActivity());
@@ -50,7 +50,7 @@ public class TwoFragment extends Fragment {
         //db.getAllEvents(userID);
 
         //Initial loding of List view with data from database
-        listContent = (ListView) InputFragmentView.findViewById(R.id.list);
+        listContent = (ListView) InputFragmentView2.findViewById(R.id.list);
         events = new ArrayList<Event>();
         events = db.getAllEvents(userID);
 
@@ -59,7 +59,7 @@ public class TwoFragment extends Fragment {
         listContent.setAdapter(customAdapter);
 
         //Swipe refresh logic
-        swipeContainer = (SwipeRefreshLayout) InputFragmentView.findViewById(R.id.swipeContainer);
+        swipeContainer = (SwipeRefreshLayout) InputFragmentView2.findViewById(R.id.swipeContainer);
         // Setup refresh listener which triggers new data loading
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -92,7 +92,7 @@ public class TwoFragment extends Fragment {
 
 
         // Inflate the layout for this fragment
-        return InputFragmentView;
+        return InputFragmentView2;
     }
 
 
