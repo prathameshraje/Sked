@@ -29,7 +29,8 @@
         <activity
             android:name=".EventHomeActivity"
             android:label="@string/title_activity_event_home"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".EventDetails"></activity>
     </application>
 
 </manifest>

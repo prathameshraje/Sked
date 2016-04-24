@@ -1,5 +1,6 @@
 package com.androidfp.prath.sked;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -9,7 +10,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +23,7 @@ public class TwoFragment extends Fragment {
     ListView listContent;
     ListAdapter customAdapter;
     List<Event> events;
+    String Event_ID,Event_Name;
     private SwipeRefreshLayout swipeContainer;
 
     public TwoFragment() {
@@ -30,15 +34,14 @@ public class TwoFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        SqlHelper db = new SqlHelper(getActivity());
-        View InputFragmentView2 = inflater.inflate(R.layout.fragment_two, container, false);
+        final SqlHelper db = new SqlHelper(getActivity());
+        final View InputFragmentView2 = inflater.inflate(R.layout.fragment_two, container, false);
         userID = getActivity().getIntent().getExtras().getInt("UserID");
         Log.d("UserID", "" + userID);
         //SqlHelper db = new SqlHelper(getActivity());
@@ -49,7 +52,7 @@ public class TwoFragment extends Fragment {
         // get all books
         //db.getAllEvents(userID);
 
-        //Initial loding of List view with data from database
+        //Initial loading of List view with data from database
         listContent = (ListView) InputFragmentView2.findViewById(R.id.list);
         events = new ArrayList<Event>();
         events = db.getAllEvents(userID);
@@ -57,6 +60,28 @@ public class TwoFragment extends Fragment {
         //get data from the table by the ListAdapter
         customAdapter = new ListAdapter(this.getActivity(), R.layout.itemlistrow, events);
         listContent.setAdapter(customAdapter);
+
+        //Load the Event Detailed Activity on clicking an event from list
+        listContent.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int position,
+                                    long arg3) {
+                //Toast test = Toast.makeText(getActivity(), "click works!", Toast.LENGTH_SHORT);
+                //test.show();
+                Intent i = new Intent(getActivity(), EventDetails.class);
+                events=db.getAllEvents(userID);
+                Event_ID=events.get(position).getEventID();
+                Event_Name=events.get(position).getEventName();
+                Log.d("Event ID",Event_ID);
+                i.putExtra("event_id", Event_ID);
+                i.putExtra("event_name",Event_Name);
+                i.putExtra("user_id",userID);
+                startActivity(i);
+            }
+        });
+
 
         //Swipe refresh logic
         swipeContainer = (SwipeRefreshLayout) InputFragmentView2.findViewById(R.id.swipeContainer);
@@ -89,6 +114,7 @@ public class TwoFragment extends Fragment {
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
+
 
 
         // Inflate the layout for this fragment

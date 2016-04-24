@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/ScrollView"
+    android:orientation="vertical"
+    android:fillViewport="true">
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.androidfp.prath.sked.EventDetails">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Your Schedule"
+        android:id="@+id/textViewScheduleTitle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Event Name:"
+        android:id="@+id/textViewEventName"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/textViewScheduleTitle"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextEventName"
+        android:layout_alignTop="@+id/textViewEventName"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/textViewEventName"
+        android:editable="false" />
+
+    <Spinner
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/spinner1"
+    android:drawSelectorOnTop="true"
+    android:entries="@array/spinnerItems"
+    android:spinnerMode="dialog"
+        android:layout_below="@+id/textViewDayOneDate"
+        android:layout_alignParentEnd="@+id/textViewEventName"
+        android:prompt="@string/SelectOne"
+        android:layout_alignStart="@+id/textViewScheduleTitle" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner2"
+        android:drawSelectorOnTop="true"
+        android:entries="@array/spinnerItems"
+        android:spinnerMode="dialog"
+        android:layout_below="@+id/spinner1"
+        android:layout_alignStart="@+id/spinner1"
+        android:layout_alignParentEnd="@+id/spinner1"
+        android:prompt="@string/SelectOne" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner3"
+        android:drawSelectorOnTop="true"
+        android:entries="@array/spinnerItems"
+        android:spinnerMode="dialog"
+        android:layout_below="@+id/spinner2"
+        android:layout_alignParentEnd="@+id/spinner2"
+        android:prompt="@string/SelectOne"
+        android:layout_alignStart="@+id/spinner2" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner4"
+        android:drawSelectorOnTop="true"
+        android:entries="@array/spinnerItems"
+        android:spinnerMode="dialog"
+        android:layout_below="@+id/spinner3"
+        android:layout_alignStart="@+id/spinner3"
+        android:layout_alignParentEnd="@+id/spinner3"
+        android:prompt="@string/SelectOne" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner5"
+        android:drawSelectorOnTop="true"
+        android:entries="@array/spinnerItems"
+        android:spinnerMode="dialog"
+        android:layout_below="@+id/spinner4"
+        android:layout_alignStart="@+id/spinner4"
+        android:layout_alignParentEnd="@+id/spinner4"
+        android:prompt="@string/SelectOne" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner6"
+        android:drawSelectorOnTop="true"
+        android:entries="@array/spinnerItems"
+        android:spinnerMode="dialog"
+        android:layout_below="@+id/textViewDayTwoDate"
+        android:layout_alignStart="@+id/spinner5"
+        android:layout_alignParentEnd="@+id/spinner5"
+        android:prompt="@string/SelectOne" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner7"
+        android:drawSelectorOnTop="true"
+        android:entries="@array/spinnerItems"
+        android:spinnerMode="dialog"
+        android:layout_below="@+id/spinner6"
+        android:layout_alignStart="@+id/spinner6"
+        android:layout_alignParentEnd="@+id/spinner6"
+        android:prompt="@string/SelectOne" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner8"
+        android:drawSelectorOnTop="true"
+        android:entries="@array/spinnerItems"
+        android:spinnerMode="dialog"
+        android:layout_below="@+id/spinner7"
+        android:layout_alignStart="@+id/spinner7"
+        android:layout_alignParentEnd="@+id/spinner7"
+        android:prompt="@string/SelectOne" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner9"
+        android:drawSelectorOnTop="true"
+        android:entries="@array/spinnerItems"
+        android:spinnerMode="dialog"
+        android:layout_below="@+id/spinner8"
+        android:layout_alignStart="@+id/spinner8"
+        android:layout_alignParentEnd="@+id/spinner8"
+        android:prompt="@string/SelectOne" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner10"
+        android:drawSelectorOnTop="true"
+        android:entries="@array/spinnerItems"
+        android:spinnerMode="dialog"
+        android:layout_below="@+id/spinner9"
+        android:layout_alignStart="@+id/spinner9"
+        android:layout_alignParentEnd="@+id/spinner9"
+        android:prompt="@string/SelectOne" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner11"
+        android:drawSelectorOnTop="true"
+        android:entries="@array/spinnerItems"
+        android:spinnerMode="dialog"
+        android:layout_below="@+id/textViewDayThreeDate"
+        android:layout_alignStart="@+id/spinner10"
+        android:layout_alignParentEnd="@+id/spinner10"
+        android:prompt="@string/SelectOne" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner12"
+        android:drawSelectorOnTop="true"
+        android:entries="@array/spinnerItems"
+        android:spinnerMode="dialog"
+        android:layout_below="@+id/spinner11"
+        android:layout_alignStart="@+id/spinner11"
+        android:layout_alignParentEnd="@+id/spinner11"
+        android:prompt="@string/SelectOne" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner13"
+        android:drawSelectorOnTop="true"
+        android:entries="@array/spinnerItems"
+        android:spinnerMode="dialog"
+        android:layout_below="@+id/spinner12"
+        android:layout_alignStart="@+id/spinner12"
+        android:layout_alignParentEnd="@+id/spinner12"
+        android:prompt="@string/SelectOne" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner14"
+        android:drawSelectorOnTop="true"
+        android:entries="@array/spinnerItems"
+        android:spinnerMode="dialog"
+        android:layout_below="@+id/spinner13"
+        android:layout_alignStart="@+id/spinner13"
+        android:layout_alignParentEnd="@+id/spinner13"
+        android:prompt="@string/SelectOne" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner15"
+        android:drawSelectorOnTop="true"
+        android:entries="@array/spinnerItems"
+        android:spinnerMode="dialog"
+        android:layout_below="@+id/spinner14"
+        android:layout_alignStart="@+id/spinner14"
+        android:layout_alignParentEnd="@+id/spinner14"
+        android:prompt="@string/SelectOne" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Your Availability For "
+        android:id="@+id/textViewDayOneLabel"
+        android:layout_below="@+id/editTextEventName"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewDayOneDate"
+        android:layout_alignTop="@+id/textViewDayOneLabel"
+        android:layout_alignEnd="@+id/editTextEventName"
+        android:layout_toEndOf="@+id/textViewDayOneLabel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time Slot 1:"
+        android:id="@+id/textViewTSA1"
+        android:layout_below="@+id/textViewDayOneLabel"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time Slot 2:"
+        android:id="@+id/textViewTSA2"
+        android:layout_below="@+id/spinner1"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time Slot 3:"
+        android:id="@+id/textViewTSA3"
+        android:layout_below="@+id/spinner2"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time Slot 4:"
+        android:id="@+id/textViewTSA4"
+        android:layout_alignTop="@+id/spinner4"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time Slot 5:"
+        android:id="@+id/textViewTSA5"
+        android:layout_alignTop="@+id/spinner5"
+        android:layout_alignEnd="@+id/textViewTSA4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time Slot 1:"
+        android:id="@+id/textViewTSB1"
+        android:layout_below="@+id/textViewDayTwoLabel"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time Slot 2:"
+        android:id="@+id/textViewTSB2"
+        android:layout_below="@+id/spinner6"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time Slot 3:"
+        android:id="@+id/textViewTSB3"
+        android:layout_alignTop="@+id/spinner8"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time Slot 4:"
+        android:id="@+id/textViewTSB4"
+        android:layout_alignTop="@+id/spinner9"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time Slot 5:"
+        android:id="@+id/textViewTSB5"
+        android:layout_below="@+id/spinner9"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time Slot 1:"
+        android:id="@+id/textViewTSC1"
+        android:layout_alignTop="@+id/spinner11"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time Slot 2:"
+        android:id="@+id/textViewTSC2"
+        android:layout_alignTop="@+id/spinner12"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time Slot 3:"
+        android:id="@+id/textViewTSC3"
+        android:layout_below="@+id/spinner12"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time Slot 4:"
+        android:id="@+id/textViewTSC4"
+        android:layout_alignTop="@+id/spinner14"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time Slot 5:"
+        android:id="@+id/textViewTSC5"
+        android:layout_below="@+id/spinner14"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Your Availability For "
+        android:id="@+id/textViewDayTwoLabel"
+        android:layout_below="@+id/spinner5"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewDayTwoDate"
+        android:layout_below="@+id/spinner5"
+        android:layout_alignStart="@+id/textViewDayOneDate"
+        android:layout_alignEnd="@+id/textViewDayOneDate" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Your Availability For "
+        android:id="@+id/textViewDayThreeLabel"
+        android:layout_below="@+id/spinner10"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewDayThreeDate"
+        android:layout_below="@+id/spinner10"
+        android:layout_alignStart="@+id/textViewDayTwoDate"
+        android:layout_alignEnd="@+id/textViewDayOneDate" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:id="@+id/buttonSaveAvailability"
+        android:layout_below="@+id/textViewTSC5"
+        android:layout_alignStart="@+id/spinner15"
+        android:layout_marginTop="22dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sked It!"
+        android:id="@+id/buttonSked"
+        android:layout_alignTop="@+id/buttonSaveAvailability"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Sked"
+        android:id="@+id/buttonViewSked"
+        android:layout_alignTop="@+id/buttonSaveAvailability"
+        android:layout_toEndOf="@+id/textViewScheduleTitle" />
+
+</RelativeLayout>
+</ScrollView>
