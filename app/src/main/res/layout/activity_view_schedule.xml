@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.androidfp.prath.sked.ViewSchedule"
+    android:background="@drawable/bg1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Event Schedule Details"
+        android:id="@+id/textViewScheduleTitle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Event Name :"
+        android:id="@+id/textViewEventName"
+        android:layout_below="@+id/textViewScheduleTitle"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="45dp"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Event Details :"
+        android:id="@+id/textViewEventDetials"
+        android:layout_below="@+id/textViewEventName"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="31dp"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your event is Scheduled on:"
+        android:id="@+id/textViewSchedule"
+        android:textSize="20dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewScheduleValue"
+        android:layout_below="@+id/textViewSchedule"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewEventNameValue"
+        android:textSize="18dp"
+        android:layout_below="@+id/textViewEventName"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textViewEventDetailsValue"
+        android:layout_below="@+id/textViewEventDetials"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/textViewEventNameValue"
+        android:layout_above="@+id/textViewSchedule" />
+
+</RelativeLayout>

@@ -181,8 +181,14 @@ public class EventDetails extends AppCompatActivity {
                             else {
                                 skedTime = sh.getSkedOne(EventID, timeFrame, eventDayOne, null, null);
                                 Log.d("Sked Time", "" + skedTime);
-                                Toast sked = Toast.makeText(getBaseContext(), "Your Sked: " + skedTime, Toast.LENGTH_SHORT);
-                                sked.show();
+                                Intent i = new Intent(EventDetails.this, ViewSchedule.class);
+                                i.putExtra("UserID", UserID);
+                                i.putExtra("EventID",EventID);
+                                i.putExtra("skedTime",skedTime);
+                                startActivity(i);
+                                /*Toast sked = Toast.makeText(getBaseContext(), "Your Sked: " + skedTime, Toast.LENGTH_SHORT);
+                                sked.show(); */
+
                             }
                         }
                     }
@@ -191,9 +197,16 @@ public class EventDetails extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         if (view.getId() == R.id.buttonSked) {
-                            sh.setScheduled(EventID);
-                            Toast setSked = Toast.makeText(getBaseContext(), "Your Event is now Scheduled!", Toast.LENGTH_LONG);
-                            setSked.show();
+                            if(sh.checkAuthority(EventID,UserID)) {
+                                sh.setScheduled(EventID);
+                                Toast setSked = Toast.makeText(getBaseContext(), "Your Event is now Scheduled!", Toast.LENGTH_LONG);
+                                setSked.show();
+                            }
+                            else
+                            {
+                                Toast setSked = Toast.makeText(getBaseContext(), "You are not authorized for this action. Only Event Organizer can Sked It!", Toast.LENGTH_LONG);
+                                setSked.show();
+                            }
                         }
                     }
                 });
@@ -299,8 +312,13 @@ public class EventDetails extends AppCompatActivity {
                             else {
                                 skedTime = sh.getSkedOne(EventID, timeFrame, eventDayOne, eventDayTwo, null);
                                 Log.d("Sked Time", "" + skedTime);
-                                Toast sked = Toast.makeText(getBaseContext(), "Your Sked: " + skedTime, Toast.LENGTH_SHORT);
-                                sked.show();
+                                Intent i = new Intent(EventDetails.this, ViewSchedule.class);
+                                i.putExtra("UserID", UserID);
+                                i.putExtra("EventID",EventID);
+                                i.putExtra("skedTime",skedTime);
+                                startActivity(i);
+                                /*Toast sked = Toast.makeText(getBaseContext(), "Your Sked: " + skedTime, Toast.LENGTH_SHORT);
+                                sked.show();*/
                             }
                         }
                     }
@@ -423,8 +441,13 @@ public class EventDetails extends AppCompatActivity {
                             else {
                                 skedTime = sh.getSkedOne(EventID, timeFrame, eventDayOne, eventDayTwo, eventDayThree);
                                 Log.d("Sked Time", "" + skedTime);
-                                Toast sked = Toast.makeText(getBaseContext(), "Your Sked: " + skedTime, Toast.LENGTH_SHORT);
-                                sked.show();
+                                Intent i = new Intent(EventDetails.this, ViewSchedule.class);
+                                i.putExtra("UserID", UserID);
+                                i.putExtra("EventID",EventID);
+                                i.putExtra("skedTime",skedTime);
+                                startActivity(i);
+                                /*Toast sked = Toast.makeText(getBaseContext(), "Your Sked: " + skedTime, Toast.LENGTH_SHORT);
+                                sked.show();*/
                             }
                         }
                     }

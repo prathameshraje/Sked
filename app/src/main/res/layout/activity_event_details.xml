@@ -14,15 +14,18 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.androidfp.prath.sked.EventDetails">
+    tools:context="com.androidfp.prath.sked.EventDetails"
+    android:background="@drawable/bg1">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Set Your Schedule"
+        android:text="Set Your Availability"
         android:id="@+id/textViewScheduleTitle"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textSize="15dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -391,13 +394,12 @@
         android:layout_alignEnd="@+id/textViewDayOneDate" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="118dp"
         android:layout_height="wrap_content"
         android:text="Save"
         android:id="@+id/buttonSaveAvailability"
-        android:layout_below="@+id/textViewTSC5"
-        android:layout_alignStart="@+id/spinner15"
-        android:layout_marginTop="22dp" />
+        android:layout_below="@+id/spinner15"
+        android:layout_alignStart="@+id/spinner15" />
 
     <Button
         android:layout_width="wrap_content"
@@ -413,7 +415,7 @@
         android:text="View Sked"
         android:id="@+id/buttonViewSked"
         android:layout_alignTop="@+id/buttonSaveAvailability"
-        android:layout_toEndOf="@+id/textViewScheduleTitle" />
+        android:layout_toEndOf="@+id/textViewScheduleTitle"  />
 
 </RelativeLayout>
 </ScrollView>

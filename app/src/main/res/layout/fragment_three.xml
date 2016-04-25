@@ -2,15 +2,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.androidfp.prath.sked.LoginActivity">
+    tools:context="com.androidfp.prath.sked.LoginActivity"
+    android:background="@drawable/bg1">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Event ID:"
         android:id="@+id/textViewEventID"
-        android:layout_marginTop="201dp"
-        android:layout_alignParentTop="true"
+        android:textSize="20dp"
+        android:layout_marginTop="93dp"
+        android:layout_below="@+id/textViewThreeLabel"
         android:layout_toStartOf="@+id/editTextEventID" />
 
     <Button
@@ -18,17 +20,28 @@
         android:layout_height="wrap_content"
         android:text="Join Event"
         android:id="@+id/buttonJoinEvent"
-        android:layout_below="@+id/textViewEventID"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="57dp" />
+        android:layout_marginTop="52dp"
+        android:layout_below="@+id/editTextEventID"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editTextEventID"
-        android:layout_above="@+id/buttonJoinEvent"
+        android:layout_alignTop="@+id/textViewEventID"
         android:layout_alignEnd="@+id/buttonJoinEvent"
         android:layout_alignStart="@+id/buttonJoinEvent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter The Event ID To Join In"
+        android:id="@+id/textViewThreeLabel"
+        android:textSize="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/textViewEventID"
+        android:layout_marginTop="87dp"
+        android:textStyle="bold" />
 
 
 </RelativeLayout>

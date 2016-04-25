@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class SqlHelper extends SQLiteOpenHelper {
 
-    String result1,result2,result3;
+    String result1,result2,result3,date;
     int count1, count2,count3;
     SQLiteDatabase db;
     // Database Version
@@ -287,6 +287,18 @@ public class SqlHelper extends SQLiteOpenHelper {
 
     }
 
+    //Method to check if the Event ID id a valid ID
+    public boolean validEvent(String strID){
+        db = this.getReadableDatabase();
+        String search = "SELECT * FROM " +TABLE_NAME_EVENTS + " WHERE event_id='" + strID + "';";
+        Cursor cursorEvent = db.rawQuery(search, null);
+        cursorEvent.moveToFirst();
+        if(cursorEvent.getCount()==0)
+            return false;
+        else
+            return true;
+    }
+
     //Method to get the number of sked days (timeframe)
     public int getTimeframe(String eventID) {
         db = this.getReadableDatabase();
@@ -356,7 +368,7 @@ public class SqlHelper extends SQLiteOpenHelper {
         if(timeFrame>=1) {
             db = this.getReadableDatabase();
             String search;
-            search = "SELECT time,MAX(timecount) AS RESULT FROM (SELECT time,COUNT(time) as timecount FROM availability where event_id='"
+            search = "SELECT time,MAX(timecount) AS RESULT,date FROM (SELECT time,COUNT(time) as timecount,date FROM availability where event_id='"
                     + eventID + "'" + " and date='" + eventDayOne + "'" + " group by time);";
             Cursor cursor = db.rawQuery(search, null);
             cursor.moveToFirst();
@@ -364,13 +376,14 @@ public class SqlHelper extends SQLiteOpenHelper {
             Log.d("Count", Integer.toString(cursor.getInt(1)));
             count1=cursor.getInt(1);
             result1=cursor.getString(0);
+            date=cursor.getString(2);
             if(timeFrame==1)
-                return result1;
+                return date+ " " + result1;
         }
         if(timeFrame>=2) {
             db = this.getReadableDatabase();
             String search;
-            search = "SELECT time,MAX(timecount) AS RESULT FROM (SELECT time,COUNT(time) as timecount FROM availability where event_id='"
+            search = "SELECT time,MAX(timecount) AS RESULT,date FROM (SELECT time,COUNT(time) as timecount,date FROM availability where event_id='"
                     + eventID + "'" + " and date='" + eventDayTwo + "'" + " group by time)";
             Cursor cursor = db.rawQuery(search, null);
             cursor.moveToFirst();
@@ -378,17 +391,18 @@ public class SqlHelper extends SQLiteOpenHelper {
             Log.d("Count2", Integer.toString(cursor.getInt(1)));
             count2=cursor.getInt(1);
             result2=cursor.getString(0);
+            date=cursor.getString(2);
             if(timeFrame==2){
                 if(count1>=count2)
-                    return result1;
+                    return date+ " " + result1;
                 else
-                    return result2;
+                    return date+ " " + result2;
             }
         }
         if(timeFrame==3) {
             db = this.getReadableDatabase();
             String search;
-            search = "SELECT time,MAX(timecount) AS RESULT FROM (SELECT time,COUNT(time) as timecount FROM availability where event_id='"
+            search = "SELECT time,MAX(timecount) AS RESULT,date FROM (SELECT time,COUNT(time) as timecount,date FROM availability where event_id='"
                     + eventID + "'" + " and date='" + eventDayThree + "'" + " group by time)";
             Cursor cursor = db.rawQuery(search, null);
             cursor.moveToFirst();
@@ -397,11 +411,11 @@ public class SqlHelper extends SQLiteOpenHelper {
             count3=cursor.getInt(1);
             result3=cursor.getString(0);
             if(count1>=count2 && count1>=count3)
-                return result1;
+                return date+ " " + result1;
             if(count2>=count1 && count2>=count3)
-                return result2;
+                return date+ " " + result2;
             if(count3>=count1 && count3>=count2)
-                return result3;
+                return date+ " " + result3;
         }
         return null;
     }
@@ -429,5 +443,17 @@ public class SqlHelper extends SQLiteOpenHelper {
                 new String[]{String.valueOf(eventID) }); //selection args
         // 4. close dbase
         db.close();
+    }
+
+    //Method to check if the user is authorised to generated schedule
+    public boolean checkAuthority(String eventID, int userID){
+        db = this.getReadableDatabase();
+        String search = "SELECT is_initiator FROM " +TABLE_NAME_EVENT_MEMBERS + " WHERE event_id='" + eventID + "' AND id=" + userID + ";";
+        Cursor cursor = db.rawQuery(search, null);
+        cursor.moveToFirst();
+        if(cursor.getString(0).equals("YES"))
+            return true;
+        else
+            return false;
     }
 }
