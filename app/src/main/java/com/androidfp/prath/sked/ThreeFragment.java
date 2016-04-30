@@ -50,7 +50,7 @@ public class ThreeFragment extends Fragment {
                         //Insert into Database (Create new event record)
                         //Event event = new Event();
                         //event.setEventID(strID);
-                        if(!sh.validEvent(strID)){
+                        if(sh.validEvent(strID)){
                             if (!sh.eventExists(strID, userID)) {
                                 sh.addEventMember(strID, userID, "NO");
                                 Toast eventAdded = Toast.makeText(getActivity(), "Event Added!", Toast.LENGTH_SHORT);
@@ -61,6 +61,7 @@ public class ThreeFragment extends Fragment {
                             }
                         }
                         else {
+
                             Toast eventError = Toast.makeText(getActivity(), "Not a Valid Event ID!", Toast.LENGTH_SHORT);
                             eventError.show();
                         }

@@ -25,25 +25,24 @@
         android:layout_height="wrap_content"
         android:text="Event Name :"
         android:id="@+id/textViewEventName"
+        android:layout_marginTop="32dp"
+        android:textSize="20dp"
         android:layout_below="@+id/textViewScheduleTitle"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="45dp"
-        android:textSize="20dp" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Event Details :"
         android:id="@+id/textViewEventDetials"
-        android:layout_below="@+id/textViewEventName"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="31dp"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:layout_below="@+id/textViewEventNameValue"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your event is Scheduled on:"
+        android:text="Your Event Scheduled Details:"
         android:id="@+id/textViewSchedule"
         android:textSize="20dp"
         android:layout_centerVertical="true"
@@ -53,10 +52,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textViewScheduleValue"
+        android:textSize="20dp"
         android:layout_below="@+id/textViewSchedule"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:textSize="20dp" />
+        android:layout_alignEnd="@+id/map" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -70,11 +69,29 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/textViewEventDetailsValue"
         android:layout_below="@+id/textViewEventDetials"
         android:layout_alignParentStart="true"
         android:layout_alignEnd="@+id/textViewEventNameValue"
         android:layout_above="@+id/textViewSchedule" />
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textViewScheduleValue"
+        tools:context="com.androidfp.prath.sked.ViewSchedule" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewLocation"
+        android:layout_below="@+id/textViewScheduleValue"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/textViewSchedule"
+        android:textSize="20dp" />
 
 </RelativeLayout>

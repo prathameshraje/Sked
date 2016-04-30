@@ -1,13 +1,14 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ScrollView"
     android:orientation="vertical"
     android:fillViewport="true">
 
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="720dp"
+    android:layout_height="760dp"
     android:background="@drawable/bg1">
 
     <TextView
@@ -58,13 +59,28 @@
         android:id="@+id/editTextEventDescription"
         android:layout_below="@+id/textViewEventDescription"
         android:layout_alignParentStart="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Event Location:"
+        android:id="@+id/venue"
+        android:layout_below="@+id/editTextEventDescription"
+        android:layout_alignParentStart="true" />
+
+    <fragment
+        android:id="@+id/autocomplete_fragment"
+        android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/venue"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Scheduling Timeframe:"
         android:id="@+id/textViewTimeframe"
-        android:layout_below="@+id/editTextEventDescription"
+        android:layout_below="@+id/autocomplete_fragment"
         android:layout_alignParentStart="true" />
 
     <RadioGroup

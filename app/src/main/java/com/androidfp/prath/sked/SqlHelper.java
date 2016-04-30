@@ -20,7 +20,7 @@ public class SqlHelper extends SQLiteOpenHelper {
     int count1, count2,count3;
     SQLiteDatabase db;
     // Database Version
-    private static final int DATABASE_VERSION = 10;
+    private static final int DATABASE_VERSION = 11;
     // Database Name
     private static final String DATABASE_NAME = "UserDB.db";
 
@@ -52,6 +52,9 @@ public class SqlHelper extends SQLiteOpenHelper {
     private static final String EVENT_DAYTWO = "daytwo";
     private static final String EVENT_DAYTHREE = "daythree";
     private static final String EVENT_SCHEDULED = "Scheduled";
+    private  static final String EVENT_ADDRESS = "address";
+    private  static final String EVENT_LAT = "lat";
+    private  static final String EVENT_LNG = "long";
 
     private static final String TABLE_CREATE_EVENTS = "CREATE TABLE " + TABLE_NAME_EVENTS
             + " ( " + EVENT_ID + " TEXT PRIMARY KEY, "
@@ -61,7 +64,10 @@ public class SqlHelper extends SQLiteOpenHelper {
             + EVENT_DAYONE + " TEXT, "
             + EVENT_DAYTWO + " TEXT, "
             + EVENT_DAYTHREE + " TEXT,"
-            + EVENT_SCHEDULED + " TEXT DEFAULT NO);";
+            + EVENT_SCHEDULED + " TEXT DEFAULT NO,"
+            + EVENT_ADDRESS + " TEXT,"
+            + EVENT_LAT + " TEXT,"
+            + EVENT_LNG + " TEXT);";
 
     // Event Members table name
     private static final String TABLE_NAME_EVENT_MEMBERS= "event_members";
@@ -224,7 +230,9 @@ public class SqlHelper extends SQLiteOpenHelper {
         values.put(EVENT_DAYONE, event.getEventDayOne()); //get event day one date
         values.put(EVENT_DAYTWO, event.getEventDayTwo()); //get event day two date
         values.put(EVENT_DAYTHREE, event.getEventDayThree()); //get event day three date
-
+        values.put(EVENT_ADDRESS, event.getAddress()); //get event day three date
+        values.put(EVENT_LAT, String.valueOf(event.getLat())); //get event day three date
+        values.put(EVENT_LNG, String.valueOf(event.getLng())); //get event day three date
         db.insert(TABLE_NAME_EVENTS, null, values); // Insert the values into DB
 
     }
@@ -321,6 +329,9 @@ public class SqlHelper extends SQLiteOpenHelper {
         event.setEventDayOne(cursor.getString(4));
         event.setEventDayTwo(cursor.getString(5));
         event.setEventDayThree(cursor.getString(6));
+        event.setAddress(cursor.getString(8));
+        event.setLat(Double.parseDouble(cursor.getString(9)));
+        event.setLng(Double.parseDouble(cursor.getString(10)));
         return event;
     }
 
@@ -455,5 +466,25 @@ public class SqlHelper extends SQLiteOpenHelper {
             return true;
         else
             return false;
+    }
+
+    public String[] isScheduledNotification(int userID) {
+        db = this.getReadableDatabase();
+        String temp;
+        String[] eventID;
+        //String search = "SELECT event_id FROM " +TABLE_NAME_EVENT_MEMBERS + " WHERE id=" + userID + ";";
+        String search="SELECT events.event_id FROM event_members inner join events on events.event_id=event_members.event_id WHERE id="+ userID + " and events.Scheduled='YES'";
+        Cursor cursor = db.rawQuery(search, null);
+        cursor.moveToFirst();
+        eventID=new String[cursor.getCount()];
+        for(int i=0;i<cursor.getCount();i++){
+            temp=cursor.getString(0);
+            if(isScheduled(temp))
+                //if scheduled then pass event id array
+                eventID[i]=cursor.getString(0);
+            cursor.moveToNext();
+        }
+
+        return eventID;
     }
 }

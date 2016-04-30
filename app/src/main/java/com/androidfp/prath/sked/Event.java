@@ -4,8 +4,35 @@ package com.androidfp.prath.sked;
  * Created by prath on 4/16/2016.
  */
 public class Event {
-    String eventID, eventName, eventDesc, eventDayOne, eventDayTwo, eventDayThree;
+    String eventID, eventName, eventDesc, eventDayOne, eventDayTwo, eventDayThree,Address;
     int eventTimeFrame;
+    Double lat;
+
+    public String getAddress() {
+        return Address;
+    }
+
+    public void setAddress(String address) {
+        Address = address;
+    }
+
+    public Double getLat() {
+        return lat;
+    }
+
+    public void setLat(Double lat) {
+        this.lat = lat;
+    }
+
+    public Double getLng() {
+        return lng;
+    }
+
+    public void setLng(Double lng) {
+        this.lng = lng;
+    }
+
+    Double lng;
 
     public String getEventID() {
         return eventID;
